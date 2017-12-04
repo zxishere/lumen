@@ -37,7 +37,8 @@ class DapentiController extends Controller
         $curl->setHeader('CLIENT-IP', '127.0.0.1');
         $curl->setHeader('X-FORWARDED-FOR', '127.0.0.1');
         $curl->get($url);
-        return response($curl->response)->withHeaders($curl->responseHeaders);
+        return response($curl->response, 200)->header('Content-Type', $curl->responseHeaders['Content-Type']);
+        // return response($curl->response)->withHeaders($curl->responseHeaders);
     }
 
 
