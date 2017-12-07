@@ -16,6 +16,7 @@ $router->get('/', function () use ($router) {
 });
 
 $router->group(['prefix' => 'dapenti', 'as' => 'dapenti'], function () use ($router) {
+	$router->get('/', ['as' => 'index', 'uses' => 'DapentiController@index']);
 	$router->get('list/{type}', ['as' => 'list', 'uses' => 'DapentiController@list']);
 	$router->get('image', ['as' => 'image', 'uses' => 'DapentiController@image']);
 	$router->get('show/{id}', ['as' => 'show', 'uses' => 'DapentiController@show']);
