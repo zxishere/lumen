@@ -11,7 +11,7 @@
     <link rel="apple-touch-icon" sizes="57x57" href="/touch-icon-iphone-114.png" />
     <link rel="apple-touch-icon" sizes="114x114" href="/touch-icon-iphone-114.png" />
     <!-- Mobi.css -->
-    <link rel="stylesheet" href="http://getmobicss.com/css/site.min.css">
+    <link rel="stylesheet" href="/site.min.css">
   </head>
   <body>
     <!-- Your content here -->
