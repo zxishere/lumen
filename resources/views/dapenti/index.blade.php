@@ -58,9 +58,7 @@
   <div class="site-article-wrapper">
     <div class="flex-center">
       <div class="container-wider">
-        {{-- {{ app('request')->route()[1]['as'] }} --}}
         @yield('content')
-        }
       </div>
     </div>
   </div>
