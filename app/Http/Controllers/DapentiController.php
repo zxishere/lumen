@@ -61,7 +61,7 @@ class DapentiController extends Controller
     https://appb.dapenti.com/index.php?s=/Home/api/lehuo/p/1/limit/10
     https://appb.dapenti.com/index.php?s=/Home/api/duanzi/p/1/limit/10
     */
-/*    public function list($type)
+    public function list($type)
     {
         $url = 'https://appb.dapenti.com/index.php?s=/home/api/'.$type.'/p/1/limit/30';
         $response = $this->get($url);
@@ -77,7 +77,7 @@ class DapentiController extends Controller
         // dd($content);
         return view('dapenti.list', ['title' => $type, 'content' => $content]);
 
-    }*/
+    }
 
     public function show($id)
     {
