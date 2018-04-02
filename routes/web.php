@@ -11,14 +11,22 @@
 |
 */
 
+use Illuminate\Support\Facades\Artisan;
+
 $router->get('/', function () use ($router) {
     return $router->app->version();
 });
 
 $router->group(['prefix' => 'dapenti', 'as' => 'dapenti'], function () use ($router) {
-	$router->get('/', ['as' => 'index', 'uses' => 'DapentiController@index']);
-	$router->get('list/{type}', ['as' => 'list', 'uses' => 'DapentiController@list']);
-	$router->get('image', ['as' => 'image', 'uses' => 'DapentiController@image']);
-	$router->get('show/{id}', ['as' => 'show', 'uses' => 'DapentiController@show']);
+    $router->get('/', ['as' => 'index', 'uses' => 'DapentiController@index']);
+    $router->get('list/{type}', ['as' => 'list', 'uses' => 'DapentiController@list']);
+    $router->get('image', ['as' => 'image', 'uses' => 'DapentiController@image']);
+    $router->get('show/{id}', ['as' => 'show', 'uses' => 'DapentiController@show']);
 });
 
+$router->get('/t/{site}/{page}', function ($site, $page) {
+    Artisan::call('crawler:torrents', [
+            '--site' => $site,
+            '--page' => $page
+        ]);
+});
