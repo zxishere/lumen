@@ -12,6 +12,11 @@
     <link rel="apple-touch-icon" sizes="114x114" href="/touch-icon-iphone-114.png" />
     <!-- Mobi.css -->
     <link rel="stylesheet" href="/site.min.css">
+    <style>
+      .oblog_text{
+        margin-top: 25px !important;
+      }
+    </style>
   </head>
   <body>
     <!-- Your content here -->
@@ -22,7 +27,7 @@
       <nav class="flex-middle units-gap-big">
       <div class="unit">
       </div>
-      <div>
+      <div style="margin-left: 15px">
         {{ $title }}&nbsp;&nbsp;
       </div>
       </nav>
