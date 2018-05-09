@@ -27,8 +27,9 @@ $router->post('deploy', function () {
     $secret = env('APP_KEY');
     $hash = hash_hmac($hash_type, $payload, $secret);
     if ($hash && $hash === $hash_value) {
-        echo '认证成功，开始更新';
-        // echo exec("./github_pull.sh");
+        echo '认证成功，开始更新'."\n\r";
+        echo exec("./github_pull.sh");
+        echo "\n\r";
         echo date("Y-m-d H:i:s");
     } else {
         echo '认证失败';
