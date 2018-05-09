@@ -17,6 +17,22 @@ $router->get('/', function () use ($router) {
     return $router->app->version();
 });
 
+$router->get('deploy', function () {
+    if (!isset($_SERVER['HTTP_X_HUB_SIGNATURE'])) {
+        die('来源非法');
+    }
+    $github_signa = $_SERVER['HTTP_X_HUB_SIGNATURE'];
+    list($hash_type, $hash_value) = explode('=', $github_signa, 2);
+    $payload = file_get_contents("php://input");
+    $secret = env('APP_KEY');
+    $hash = hash_hmac($hash_type, $payload, $secret);
+    if ($hash && $hash === $hash_value) {
+        echo '认证成功，开始更新';
+        // echo exec("./github_pull.sh");
+        echo date("Y-m-d H:i:s");
+    }
+});
+
 $router->group(['prefix' => 'dapenti', 'as' => 'dapenti'], function () use ($router) {
     $router->get('/', ['as' => 'index', 'uses' => 'DapentiController@index']);
     $router->get('list/{type}', ['as' => 'list', 'uses' => 'DapentiController@list']);
