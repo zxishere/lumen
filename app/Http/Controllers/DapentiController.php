@@ -102,7 +102,8 @@ class DapentiController extends Controller
             '友情提示：请各位河蟹评论',
             '喷嚏新浪围脖',
             '我想问你这裤子哪里买的',
-            '喷嚏优选'
+            '喷嚏优选',
+            'taobao'
         ];
         foreach ($html->find('p') as $p) {
             foreach ($strs as $str) {
