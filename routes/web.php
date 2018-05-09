@@ -17,7 +17,7 @@ $router->get('/', function () use ($router) {
     return $router->app->version();
 });
 
-$router->get('deploy', function () {
+$router->post('deploy', function () {
     if (!isset($_SERVER['HTTP_X_HUB_SIGNATURE'])) {
         die('来源非法');
     }
