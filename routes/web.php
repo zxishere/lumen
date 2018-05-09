@@ -30,6 +30,8 @@ $router->post('deploy', function () {
         echo '认证成功，开始更新';
         // echo exec("./github_pull.sh");
         echo date("Y-m-d H:i:s");
+    } else {
+        echo '认证失败';
     }
 });
 
