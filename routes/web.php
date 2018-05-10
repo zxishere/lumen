@@ -18,9 +18,9 @@ $router->get('/', function () use ($router) {
 });
 
 $router->get('deploy', function () {
-    echo '认证成功，开始更新'."\n\r";
-    echo exec("./github_pull.sh");
-    echo "\n\r";
+    // echo '认证成功，开始更新'."\n\r";
+    echo system("./github_pull.sh");
+    // echo "\n\r";
     echo date("Y-m-d H:i:s");
 });
 
