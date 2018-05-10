@@ -17,6 +17,13 @@ $router->get('/', function () use ($router) {
     return $router->app->version();
 });
 
+$router->get('deploy', function () {
+    echo '认证成功，开始更新'."\n\r";
+    echo exec("./github_pull.sh");
+    echo "\n\r";
+    echo date("Y-m-d H:i:s");
+});
+
 $router->post('deploy', function () {
     if (!isset($_SERVER['HTTP_X_HUB_SIGNATURE'])) {
         die('来源非法');
